@@ -43,7 +43,7 @@ s.send(inp2send)
 message = s.recv(bufferSize)
 
 result = unpack("b",message[0:1])
-result1 = unpack("i", message[1:5])
+result1 = unpack("i", (message[1:5]))
 
 print(result)
 print(result1)
