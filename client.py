@@ -10,6 +10,8 @@ bufferSize = 1024
 
 s = socket(AF_INET,SOCK_DGRAM)
 s.connect(serverAddrPort)
+s.settimeout(1)
+
 #s.bind(serverAddrPort)
 
 #Print to terminal for the client
@@ -33,8 +35,8 @@ packedObj3 = pack("i", inp2)
 
 
 s.send(packedObj1)
-s.send(packedObj2)
-s.send(packedObj3)
+#s.send(packedObj2)
+#s.send(packedObj3)
 #unpackedObj = unpack("iii",packedObj)
 #print(unpackedObj)
 
