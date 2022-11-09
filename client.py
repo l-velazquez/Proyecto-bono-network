@@ -30,7 +30,7 @@ print(inp2send)
 packedObj = pack("iii", inp, inp1, inp2)
 
 print(packedObj)
-s.sendto(packedObj,serverAddrPort)
+s.send(packedObj,serverAddrPort)
 
 unpackedObj = unpack("iii",packedObj)
 print(unpackedObj)
