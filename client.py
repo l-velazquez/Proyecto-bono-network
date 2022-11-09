@@ -42,4 +42,6 @@ s.send(inp2send)
 #print(unpackedObj)
 message = s.recv(bufferSize)
 
-unpack("b",message)
+result = unpack("b",message)
+
+print(result)
