@@ -27,11 +27,14 @@ else:
     inp2send = inp + inp1
 
 print(inp2send)
-packedObj = pack("iii", inp, inp1, inp2)
+packedObj1 = pack("i", inp)
+packedObj2 = pack("i", inp1)
+packedObj3 = pack("i", inp2)
 
-print(packedObj)
-s.send(packedObj,serverAddrPort)
 
+s.send(packedObj1)
+s.send(packedObj2)
+s.send(packedObj3)
 unpackedObj = unpack("iii",packedObj)
 print(unpackedObj)
 
