@@ -8,7 +8,7 @@ PORT = 4205
 serverAddrPort = (ADDRESS,PORT)
 bufferSize = 1024
 
-s = socket(AF_INET,SOCK_DGRAM)
+s = socket(AF_INET,SOCK_STREAM)
 s.connect(serverAddrPort)
 s.settimeout(1)
 
