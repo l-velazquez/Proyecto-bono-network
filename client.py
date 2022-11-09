@@ -35,11 +35,10 @@ packedObj3 = pack("i", inp2)
 s.send(packedObj1)
 s.send(packedObj2)
 s.send(packedObj3)
-unpackedObj = unpack("iii",packedObj)
-print(unpackedObj)
+#unpackedObj = unpack("iii",packedObj)
+#print(unpackedObj)
 
 #1
 msg = s.recvfrom(bufferSize)
 unpackedObj = unpack("ii", msg)
-
 print(unpackedObj)
