@@ -40,5 +40,5 @@ s.send(inp2send)
 #s.send(packedObj3)
 #unpackedObj = unpack("iii",packedObj)
 #print(unpackedObj)
-
-unpack("i",data[1:5])
+message = s.recv(bufferSize)
+unpack("i",message[1:5])
