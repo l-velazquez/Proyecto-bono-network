@@ -8,8 +8,9 @@ PORT = 4205
 serverAddrPort = (ADDRESS,PORT)
 bufferSize = 1024
 
-s = socket(socket.AF_INET,SOCK_DGRAM)
-s.bind(serverAddrPort)
+s = socket(AF_INET,SOCK_DGRAM)
+s.connect(serverAddrPort)
+#s.bind(serverAddrPort)
 
 #Print to terminal for the client
 print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
