@@ -39,6 +39,6 @@ s.send(packedObj3)
 #print(unpackedObj)
 
 #1
-msg = s.recvfrom(bufferSize)
+msg = s.recv(bufferSize)
 unpackedObj = unpack("ii", msg)
 print(unpackedObj)
