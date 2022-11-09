@@ -33,7 +33,7 @@ packedObj1 = pack("i", inp)
 packedObj2 = pack("i", inp1)
 packedObj3 = pack("i", inp2)
 
-
+print("sending:",packedObj1)
 s.send(packedObj1)
 #s.send(packedObj2)
 #s.send(packedObj3)
