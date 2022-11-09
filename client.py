@@ -8,7 +8,7 @@ PORT = 4205
 serverAddrPort = (ADDRESS,PORT)
 bufferSize = 1024
 
-s = socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
+s = socket
 
 #Print to terminal for the client
 print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
@@ -30,6 +30,10 @@ packedObj = pack("iii", inp, inp1, inp2)
 print(packedObj)
 s.sendto(packedObj,serverAddrPort)
 
+unpackedObj = unpack("iii",packedObj)
+print(unpackedObj)
+
+#1
 msg = s.recvfrom(bufferSize)
 unpackedObj = unpack("ii", msg)
 
