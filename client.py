@@ -3,7 +3,7 @@ from socket import *
 from time import *
 
 #Adress to connect to the server
-ADDRESS = "136.145.181.51"
+ADDRESS = "lagrange.ccom.uprrp.edu"
 PORT = 4205
 serverAddrPort = (ADDRESS,PORT)
 bufferSize = 1024
