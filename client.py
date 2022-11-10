@@ -27,13 +27,13 @@ if(inp == 1 or inp == 2 or inp == 3 or inp == 4):
     inp1 = pack("i",int(input("Input 1 >>>")))
     inp2 = pack("i",int(input("Input 2 >>>")))
     inp0 = pack("i", inp)
-    inp2send = (inp0+inp1+inp2)
+    inp2send = (inp0,inp1,inp2)
     print(unpack("iii",inp2send))
 else:
     print("Input number")
     inp1 = pack("i", int(input("Input >>>")))
     inp0 = pack("i",inp)
-    inp2send = (inp0 + inp1)
+    inp2send = (inp0,inp1)
     print(unpack("ii",inp2send))
 
 print("sending ",inp2send)
