@@ -26,13 +26,13 @@ if(inp < 5):
     print("Please add two inputs:")
     inp1 = pack("i",int(input("Input 1 >>>")))
     inp2 = pack("i",int(input("Input 2 >>>")))
-    inp0 = pack("b", inp)
+    inp0 = pack("B", inp)
     inp2send = (inp0+inp1+inp2)
     #print(unpack("iii",inp2send))
 else:
     print("Input number")
     inp1 = pack("i", int(input("Input >>>")))
-    inp0 = pack("b",inp)
+    inp0 = pack("B",inp)
     inp2send = (inp0+inp1)
     #print(unpack("ii",inp2send))
 
@@ -47,10 +47,15 @@ s.send(inp2send)
 message = s.recv(bufferSize)
 
 print(str(message))
-
-result = unpack("<bi",message)
+print(len(message))
+if len(message)<2:
+    result = unpack("b",message)
+    #print(result)
 #result1 = unpack("i", message[1:5])
-print(result)
+else:
+    result = unpack("bi",message)
+
+
 if result[0]==3:
     print("Invalid command")
 #print(result1)
