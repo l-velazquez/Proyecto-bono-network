@@ -21,7 +21,7 @@ recvMsg = s.recv(bufferSize)
 print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
 inp = int(input("\nOperation >>> "))
 
-if(inp == 1 or inp == 2 or inp == 3 or inp == 4)):
+if(inp == 1 or inp == 2 or inp == 3 or inp == 4):
     print("Please add two inputs:")
     inp1 = pack("i",int(input("Input 1 >>>")))
     inp2 = pack("i",int(input("Input 2 >>>")))
