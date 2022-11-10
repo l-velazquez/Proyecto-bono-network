@@ -57,8 +57,8 @@ while val:
     if debug:
         print(str(message))
         print(len(message))
-        print("message[0]",message[0])
-        print(unpack("i",message[1:5]))
+        print("message[0] = ",message[0])
+        #print(unpack("i",message[1:5]))
     #---------------------------------------------------------------------
 
     result = None
