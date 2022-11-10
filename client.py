@@ -22,17 +22,17 @@ print(recvMsg)
 print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
 inp = int(input("\nOperation >>> "))
 
-if(inp == 1 or inp == 2 or inp == 3 or inp == 4):
+if(inp < 5):
     print("Please add two inputs:")
     inp1 = pack("i",int(input("Input 1 >>>")))
     inp2 = pack("i",int(input("Input 2 >>>")))
-    inp0 = pack("i", inp)
+    inp0 = pack("b", inp)
     inp2send = (inp0+inp1+inp2)
     print(unpack("iii",inp2send))
 else:
     print("Input number")
     inp1 = pack("i", int(input("Input >>>")))
-    inp0 = pack("i",inp)
+    inp0 = pack("b",inp)
     inp2send = (inp0+inp1)
     print(unpack("ii",inp2send))
 
