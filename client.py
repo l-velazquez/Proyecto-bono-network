@@ -51,5 +51,6 @@ print(str(message))
 result = unpack("b",message)
 #result1 = unpack("i", message[1:5])
 
-print(result)
+if result[0]==3:
+    print("Invalid command")
 #print(result1)
