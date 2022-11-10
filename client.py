@@ -48,7 +48,7 @@ message = s.recv(bufferSize)
 
 print(str(message))
 
-result = unpack("b",message[0:1])
+result = unpack("b",message)
 #result1 = unpack("i", message[1:5])
 
 print(result)
