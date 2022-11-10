@@ -32,7 +32,7 @@ else:
     print("Input number")
     inp1 = pack("i", int(input("Input >>>")))
     inp0 = pack("i",inp)
-    inp2send = (inp + inp1)
+    inp2send = (inp0 + inp1)
 
 print("sending ",inp2send)
 print(unpack("iii",inp2send))
