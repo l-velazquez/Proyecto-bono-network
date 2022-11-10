@@ -34,7 +34,8 @@ else:
     inp0 = pack("i",inp)
     inp2send = (inp + inp1)
 
-print(inp2send)
+print("sending "+inp2send)
+print(unpack("iii",inp2send))
 
 s.send(inp2send)
 #s.send(packedObj2)
