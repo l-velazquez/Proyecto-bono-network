@@ -48,7 +48,7 @@ message = s.recv(bufferSize)
 
 print(str(message))
 
-result = unpack("b",message)
+result = unpack("<bi",message)
 #result1 = unpack("i", message[1:5])
 
 if result[0]==3:
