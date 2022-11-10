@@ -6,7 +6,7 @@ from time import *
 ADDRESS = "lagrange.ccom.uprrp.edu"
 PORT = 4205
 serverAddrPort = (ADDRESS,PORT)
-bufferSize = 1024
+bufferSize = 4096
 
 s = socket(AF_INET,SOCK_STREAM)
 s.connect(serverAddrPort)
@@ -16,6 +16,7 @@ s.settimeout(1)
 msg = "Hola"
 s.send(msg.encode())
 recvMsg = s.recv(bufferSize)
+print(recvMsg)
 
 #Print to terminal for the client
 print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
