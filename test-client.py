@@ -22,3 +22,7 @@ print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplic
 inp = int(input("\nOperation >>> "))
 
 inp2send = pack("i",inp)
+
+msg = s.recv(bufferSize)
+
+print(str(msg))
