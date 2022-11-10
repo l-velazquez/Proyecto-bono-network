@@ -49,8 +49,25 @@ message = s.recv(bufferSize)
 print(str(message))
 
 result = unpack("i",message)
+s.send(inp2send)
+#s.send(packedObj2)
+#s.send(packedObj3)
+#unpackedObj = unpack("iii",packedObj)
+#print(unpackedObj)
+message = s.recv(bufferSize)
+
+print(str(message))
+print(len(message))
+if len(message)<2:
+    result = unpack("b",message)
+    #print(result)
 #result1 = unpack("i", message[1:5])
-print(result)
+else:
+    result = unpack("bi",message)
+
+
 if result[0]==3:
     print("Invalid command")
 #print(result1)
+#result1 = unpack("i", message[1:5])
+print(result)
