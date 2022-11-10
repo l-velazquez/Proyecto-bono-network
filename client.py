@@ -16,7 +16,7 @@ s.settimeout(1)
 msg = "Hola"
 s.send(msg.encode())
 recvMsg = s.recv(bufferSize)
-print(recvMsg)
+print("\n",recvMsg.decode())
 
 #Print to terminal for the client
 print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
@@ -48,7 +48,7 @@ message = s.recv(bufferSize)
 
 print(str(message))
 
-result = unpack("<bi",message)
+result = unpack("i",message)
 #result1 = unpack("i", message[1:5])
 print(result)
 if result[0]==3:
