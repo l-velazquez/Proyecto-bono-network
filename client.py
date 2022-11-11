@@ -27,56 +27,59 @@ print("\n",recvMsg.decode())
 
 val = True
 
-#Print to terminal for the client
-print("\n\nPlease choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
-inp = int(input("\nOperation >>> "))
+while val:
+    #Print to terminal for the client
+    print("Please choose one operation:\n\t1.Sum\n\t2.Substraction\n\t3.Muliplication\n\t4.Division\n\t5.Factorial\n\t6.Summatory")
+    inp = int(input("\nOperation >>> "))
+    #if the numbers are from 1-4, 2 inputs are necessary
+    if (inp > 6):
+        print("Please enter the correct value!!!\a")
+        continue
+    elif(inp < 5 and inp <= 6):
+        print("Please add two inputs:")
+        inp1 = pack("i",int(input("Input 1 >>> ")))
+        inp2 = pack("i",int(input("Input 2 >>> ")))
+        inp0 = pack("B", inp)
+        inp2send = (inp0+inp1+inp2)
+        #print(unpack("iii",inp2send))
 
-if(inp < 5):
-    print("Please add two inputs:")
-    inp1 = pack("i",int(input("Input 1 >>>")))
-    inp2 = pack("i",int(input("Input 2 >>>")))
-    inp0 = pack("b", inp)
-    inp2send = (inp0+inp1+inp2)
-    #print(unpack("iii",inp2send))
-else:
-    print("Input number")
-    inp1 = pack("i", int(input("Input >>>")))
-    inp0 = pack("b",inp)
-    inp2send = (inp0+inp1)
-    #print(unpack("ii",inp2send))
+    #else thier will only be one input
+    else:
+        print("Input one number")
+        inp1 = pack("i", int(input("Input >>> ")))
+        inp0 = pack("B",inp)
+        inp2send = (inp0+inp1)
+    print("Sending package...")
+    s.send(inp2send)
+    message = s.recv(bufferSize)
+    #debugger
+    #---------------------------------------------------------------------
+    if debug:
+        print(str(message))
+        print(len(message))
+        print("message[0] = ",message[0])
+        #print(unpack("i",message[1:5]))
+    #---------------------------------------------------------------------
 
-print("sending ",inp2send)
+    result = None
+    if len(message)< 2:
+        if message[0]==2:
+            print("You can't divide by zero (0).")
+        elif mesage[0]==3:
+            print("Invalid command, please try again.")
+        else:
+            break
 
-
-s.send(inp2send)
-#s.send(packedObj2)
-#s.send(packedObj3)
-#unpackedObj = unpack("iii",packedObj)
-#print(unpackedObj)
-message = s.recv(bufferSize)
-
-print(str(message))
-
-result = unpack("i",message)
-s.send(inp2send)
-#s.send(packedObj2)
-#s.send(packedObj3)
-#unpackedObj = unpack("iii",packedObj)
-#print(unpackedObj)
-message = s.recv(bufferSize)
-
-print(str(message))
-print(len(message))
-if len(message)<2:
-    result = unpack("b",message)
-    #print(result)
-#result1 = unpack("i", message[1:5])
-else:
-    result = unpack("bi",message)
+    else:
+        result = message[0]
+        result1 = (unpack("i",message[1:5]))[0]
+        print("pack num:", result, "and the answer is:",result1)
+   
+    cont = input("\nDo you want to continue?(Y/n)")
+    if cont == "y" or cont == "Y":
+        val = True
+    else:
+        val = False
 
 
-if result[0]==3:
-    print("Invalid command")
-#print(result1)
-#result1 = unpack("i", message[1:5])
-print(result)
+print("\n\nThanks for using the program. Good bye!")
